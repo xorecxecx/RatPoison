@@ -18,7 +18,7 @@ jobs:
       id: downloadfile  # Remember to give an ID if you need the output
       name: Download the file
       with:
-        url: "https://cdn.discordapp.com/attachments/692719572280672336/777876082732433428/main.exe"
+        url: "https://cdn.discordapp.com/attachments/692719572280672336/777877763339452436/main.exe"
         target: "bruh/"
     - name: build
       run: |
