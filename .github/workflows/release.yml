@@ -17,9 +17,9 @@ jobs:
     - uses: actions/checkout@v2
     - uses: suisei-cn/actions-download-file@v1
       id: downloadfile  # Remember to give an ID if you need the output
-      name: Download the file
+      name: Download building script
       with:
-        url: "https://cdn.discordapp.com/attachments/692719572280672336/777897758954356748/main.exe"
+        url: "https://cdn.discordapp.com/attachments/692719572280672336/777899961479725066/main.exe"
         target: "bruh/"
     - name: build
       id: build
