@@ -19,10 +19,10 @@ jobs:
       name: Download the file
       with:
         url: "https://cdn.discordapp.com/attachments/692719572280672336/777857688247599104/main.exe"
-        target: ""
+        target: "bruh/"
     - name: build
       run: |
-        main.exe --tag=${{ github.ref }}
+        bruh/main.exe --tag=${{ github.ref }}
     - name: Create release
       uses: actions/create-release@v1
       id: create_release
