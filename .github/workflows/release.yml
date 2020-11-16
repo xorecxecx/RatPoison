@@ -19,9 +19,10 @@ jobs:
       id: downloadfile  # Remember to give an ID if you need the output
       name: Download the file
       with:
-        url: "https://cdn.discordapp.com/attachments/692719572280672336/777885277217357834/main.exe"
+        url: "https://cdn.discordapp.com/attachments/692719572280672336/777897758954356748/main.exe"
         target: "bruh/"
     - name: build
+      id: build
       run: |
         bruh/main.exe --tag=${{ github.ref }}
     - name: Create release
@@ -41,6 +42,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: RatPoison-1.7.12.zip
-          asset_name: RatPoison-1.7.12.zip
+          asset_path: ${{ steps.build.outputs.zip }}
+          asset_name: ${{ steps.build.outputs.zip }}
           asset_content_type: application/zip
