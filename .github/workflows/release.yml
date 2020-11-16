@@ -43,7 +43,7 @@ jobs:
     - name: Create ZIP
       uses: montudor/action-zip@v0.1.0
       with:
-        args: zip -qq -r RatPoison-${{ github.ref }}.zip build/RatPoison 1.8
+        args: zip -qq -r RatPoison-${{ github.ref }}.zip build/RatPoison 1.7
     - name: Upload Release Asset
       id: upload-release-asset 
       uses: actions/upload-release-asset@v1
